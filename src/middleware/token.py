@@ -13,7 +13,8 @@ def token_required(self, ):
             token = request.headers["Authorization"].split(" ")[1]
         if not token:
             return {
-                "message": "Você precisa se autenticar primeiro!"
+                "message": "Você precisa primeiro se autenticar!",
+                "error": "Não autorizado"
             }, 401
 
         return self(*args, **kwargs)
